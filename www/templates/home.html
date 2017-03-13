@@ -3,17 +3,17 @@
     <form id="home-form1" class="list">
       <label class="item item-input" id="home-input1">
         <span class="input-label">Nombre</span>
-        <input type="text" placeholder="">
+        <input ng-model="record.nombre" type="text" placeholder="">
       </label>
       <label class="item item-input" id="home-input2">
         <span class="input-label">Fecha</span>
-        <input type="date" placeholder="">
+        <input ng-model="record.fecha" type="date" placeholder="">
       </label>
       <label class="item item-input" id="home-input3">
         <span class="input-label">Placas</span>
-        <input type="text" placeholder="">
+        <input ng-model="record.placas" type="text" placeholder="">
       </label>
     </form>
-    <button id="home-button1" class="button button-positive  button-block">Submit</button>
+    <button id="home-button1" class="button button-positive  button-block" ng-click="submit()">Submit</button>
   </ion-content>
 </ion-view>
