@@ -13,7 +13,8 @@ function ($scope, $stateParams, $http) {
 		console.log('submit', $scope.record);
 		$http.post(url, $scope.record, {'Content-Type': 'application/json'})
 			.then(function(res){
-				console.log('res', res)
+				console.log('res', res);
+				$scope.record = {};
 			})
 			.catch(function(err){
 				console.log('err', err)
@@ -30,24 +31,15 @@ function ($scope, $stateParams, $http) {
 
 	activate();
 
-
 	function activate(){
 		$scope.calendar = {};
 		$http.get(url)
 			.then(function(res){
-				console.log('res', res.data);
 				// $scope.calendar.eventSource = createRandomEvents();
 				$scope.calendar.eventSource = res.data;
 
-
 				res.data.forEach(function(data) {
-					console.log('data', data);
-					// data.eventType = 1;
-					if (!data.fecha) {
-						data.fecha = new Date();
-					}
-
-					data.title = data.nombre;
+					data.title = data.nombre + ' - ' + data.placas;
 					data.allDay = false;
 					data.startTime = data.fecha;
 					data.endTime = data.fecha;
